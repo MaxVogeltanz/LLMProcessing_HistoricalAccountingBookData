@@ -1,0 +1,30 @@
+# config file for LLM Processing in project "Aldersbach Digital"
+# Author: Max Vogeltanz, University of Graz, 2026
+
+provider: anthropic   # anthropic | openai | mistral | gemini
+
+paths:
+  input_json: data/JSONtoRDF/plaintextentries_346 - Kopie.json # input file path
+  output_rdf: output/JSONtoRDF/{PROVIDER}/raw/plaintextentries_346-Test{MODEL}.xml # only for add entry category
+  system_prompt: data/JSONtoRDF/prompts/systemprompt.txt # path to system prompt
+
+run:
+  objects_per_batch: 1 # set to one when doing Json -> RDF encoding, higher number would increase number of json objects per prompt run
+  max_retries: 3 # defining maximum amount of reconnection/retry attempts if API call is unsuccessful
+  retry_backoff_base_seconds: 2 # time delay for retry attempts
+
+generation:
+  model: claude-sonnet-4-5 # use different available models here
+  max_tokens: 4096 # define maximum output tokens
+  temperature: 0 # temperature 
+
+cost: # optional (purely for your cost estimation printout)
+  input_per_1m: 3
+  output_per_1m: 15
+
+## Costs ##
+# Mistral Large: Input: 0.5 Output: 1.5
+# Claude Sonnet 4.5: Input: 3, Output 15
+# Claude Opus 4.5: Input: 5, Output 25
+
+# feel free to fill in more if you like
