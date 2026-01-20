@@ -5,7 +5,7 @@ provider: anthropic   # anthropic | openai | mistral | gemini
 
 paths:
   input_json: data/JSONtoRDF/plaintextentries_346 - Kopie.json # input file path
-  output_rdf: output/JSONtoRDF/{PROVIDER}/raw/plaintextentries_346-Test{MODEL}.xml # only for add entry category
+  output_rdf: output/JSONtoRDF/{PROVIDER}/raw/plaintextentries_346-Test{MODEL}.xml # only for JSONtoRDF
   system_prompt: data/JSONtoRDF/prompts/systemprompt.txt # path to system prompt
 
 run:
@@ -26,5 +26,6 @@ cost: # optional (purely for your cost estimation printout)
 # Mistral Large: Input: 0.5 Output: 1.5
 # Claude Sonnet 4.5: Input: 3, Output 15
 # Claude Opus 4.5: Input: 5, Output 25
+
 
 # feel free to fill in more if you like
